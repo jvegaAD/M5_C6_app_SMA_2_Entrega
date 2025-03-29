@@ -130,3 +130,26 @@ pip install drf-yasg
 - `POST`: Registra un avance con porcentaje, observaciones y archivo respaldo.
 
 > Todos los endpoints están protegidos con autenticación básica.
+---
+
+## 🧠 Relaciones entre Tablas y Utilidad
+
+A continuación se detalla la estructura de la base de datos según el diagrama generado en Supabase:
+
+### 🏢 `reporte_ppda_organismo`
+- Almacena los organismos responsables.
+- Relacionada con `medidappda` a través de `organismo_responsable_id`.
+
+### 📋 `reporte_ppda_medidappda`
+- Representa medidas del PPDA.
+- Relacionada con `organismo` y utilizada por `avance_medida`.
+
+### 📈 `reporte_ppda_avancemedida`
+- Registra el progreso de las medidas.
+- Relacionada con `medidappda` a través de `medida_id`.
+
+### 🔐 Tablas de usuarios (`auth_user`, `auth_group`, etc.)
+- Gestionan usuarios, permisos y sesiones del sistema.
+- Permiten aplicar autenticación básica en los endpoints.
+
+> Estas relaciones permiten seguir el modelo lógico del PPDA definido en la Instrucción General de la SMA, permitiendo trazabilidad completa desde el organismo responsable hasta el avance reportado con evidencia.
