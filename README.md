@@ -40,38 +40,42 @@ M5 - 3 - APP SMA/                # Carpeta raíz del proyecto
 
 ### 📌 Tabla: `reporte_ppda_organismo`
 
-- **Propósito**: Almacena las entidades públicas responsables de medidas PPDA.
-- **Campos**:
-  - `nombre`: Nombre del organismo (Ej: Seremi Salud, CONAF).
-  - `comuna`: Comuna responsable.
-  - `correo_contacto`: Email oficial de contacto.
-
----
+- Almacena las entidades públicas responsables de medidas PPDA.
 
 ### 📌 Tabla: `reporte_ppda_medidappda`
 
-- **Propósito**: Representa cada medida del PPDA que debe ser implementada.
-- **Campos**:
-  - `nombre`: Descripción de la medida.
-  - `tipo`: Regulatoria o No Regulatoria.
-  - `indicador`: Cómo se mide el avance.
-  - `medio_verificacion`: Documentos o acciones que respaldan el cumplimiento.
-  - `organismo_responsable`: Relación con la tabla `organismo`.
-
----
+- Representa cada medida del PPDA, con tipo, indicador y organismo responsable.
 
 ### 📌 Tabla: `reporte_ppda_avancemedida`
 
-- **Propósito**: Permite registrar los reportes de avance por cada medida en fechas determinadas.
-- **Campos**:
-  - `medida`: Relación con la medida del PPDA.
-  - `fecha_reporte`: Fecha del avance informado.
-  - `porcentaje_avance`: Avance numérico (%) acumulado.
-  - `observaciones`: Detalles u observaciones del organismo.
-  - `archivo_respaldo`: Documento adjunto como evidencia (opcional).
+- Registra reportes de avance por medida, con fecha, porcentaje y respaldo.
 
 ---
 
-✅ Estas tablas ya se encuentran creadas y visibles en Supabase tras ejecutar las migraciones.
+## 🧩 Estructura de modelos Django
 
-_Próximamente: endpoints REST, autenticación y documentación Swagger._
+```python
+class Organismo(models.Model):
+    nombre = models.CharField(max_length=200)         # Nombre del organismo
+    comuna = models.CharField(max_length=100)         # Comuna asociada
+    correo_contacto = models.EmailField()             # Correo oficial
+
+class MedidaPPDA(models.Model):
+    TIPO_CHOICES = [('regulatoria', 'Regulatoria'), ('no_regulatoria', 'No Regulatoria')]
+    nombre = models.CharField(max_length=255)         # Nombre o título de la medida
+    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)  # Tipo de medida
+    indicador = models.CharField(max_length=255)      # Indicador de seguimiento
+    medio_verificacion = models.TextField()           # Evidencia del avance
+    organismo_responsable = models.ForeignKey(Organismo, on_delete=models.CASCADE)  # FK
+
+class AvanceMedida(models.Model):
+    medida = models.ForeignKey(MedidaPPDA, on_delete=models.CASCADE)  # FK a Medida
+    fecha_reporte = models.DateField()                                # Fecha de informe
+    porcentaje_avance = models.PositiveIntegerField()                 # % acumulado
+    observaciones = models.TextField(blank=True)                      # Comentarios
+    archivo_respaldo = models.FileField(upload_to='reportes/', null=True, blank=True)  # Evidencia
+```
+
+---
+
+_Próximamente: implementación de endpoints, autenticación y Swagger._
