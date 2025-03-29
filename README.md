@@ -1,13 +1,34 @@
-
 # 🛠️ Proyecto SMA - Registro y Reporte PPDA CQP
 
 Este proyecto permite a organismos responsables registrar y reportar el estado de avance de las medidas del Plan de Prevención y Descontaminación Atmosférica (PPDA) para las comunas de Concón, Quintero y Puchuncaví, según lo instruido por la SMA en la Resolución Exenta N°1379.
 
 ---
 
-## 📁 Carpeta de trabajo
+## 🗂️ Estructura de archivos del proyecto
 
-`C:\Users\control gestion\JV\BP\M5 - 3 - APP SMA`
+```
+M5 - 3 - APP SMA/
+├── env/                        # Entorno virtual
+├── Proyecto_SMA/              # Configuración principal de Django
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── reporte_ppda/              # Aplicación del proyecto
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── permissions.py
+│   └── tests.py
+├── manage.py
+├── requirements.txt
+├── .env
+└── README.md
+```
 
 ---
 
