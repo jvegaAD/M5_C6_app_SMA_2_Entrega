@@ -1,19 +1,13 @@
 ## 📑 Índice
 
-1. [Descripción del Proyecto](#🛠️-proyecto-sma---registro-y-reporte-ppda-cqp)
-2. [Estructura de Archivos del Proyecto](#🗂️-estructura-de-archivos-del-proyecto)
-3. [Estructura de Base de Datos](#🗄️-estructura-de-base-de-datos-postgresql---supabase)
-4. [Modelos Django](#🧩-estructura-de-modelos-django)
-5. [Endpoints REST Disponibles](#🌐-endpoints-rest-disponibles)
-6. [Funcionalidad de los Endpoints](#🔍-funcionalidad-de-los-endpoints)
-7. [Documentación de la API](#📄-documentación-de-la-api)
-8. [Relaciones de Tablas y Utilidad](#📊-estructura-relacional-de-la-base-de-datos)
-
-# 🛠️ Proyecto SMA - Registro y Reporte PPDA CQP
-
-Este proyecto permite a organismos responsables registrar y reportar el estado de avance de las medidas del Plan de Prevención y Descontaminación Atmosférica (PPDA) para las comunas de Concón, Quintero y Puchuncaví, según lo instruido por la SMA en la Resolución Exenta N°1379.
-
----
+- [🛠️ Proyecto SMA - Registro y Reporte PPDA CQP](#proyecto-sma---registro-y-reporte-ppda-cqp)
+- [🗂️ Estructura de Archivos del Proyecto](#estructura-de-archivos-del-proyecto)
+- [🗄️ Estructura de Base de Datos (PostgreSQL - Supabase)](#estructura-de-base-de-datos-postgresql---supabase)
+- [🧩 Estructura de modelos Django](#estructura-de-modelos-django)
+- [🌐 Endpoints REST disponibles](#endpoints-rest-disponibles)
+- [🔍 Funcionalidad de los endpoints](#funcionalidad-de-los-endpoints)
+- [📄 Documentación de la API](#documentación-de-la-api)
+- [📊 Estructura relacional de la base de datos](#estructura-relacional-de-la-base-de-datos)
 
 ## 🗂️ Estructura de archivos del proyecto
 
