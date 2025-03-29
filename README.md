@@ -113,3 +113,20 @@ Y de tener las siguientes librerías instaladas:
 ```bash
 pip install drf-yasg
 ```
+---
+
+## 🔍 Funcionalidad de los endpoints
+
+### `/api/organismos/`
+- `GET`: Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
+- `POST`: Crea un nuevo organismo con nombre, comuna y correo de contacto.
+
+### `/api/medidas/`
+- `GET`: Lista todas las medidas del PPDA, mostrando tipo, indicador y organismo responsable.
+- `POST`: Crea una nueva medida PPDA asignada a un organismo.
+
+### `/api/avances/`
+- `GET`: Muestra los reportes de avance ingresados por cada organismo.
+- `POST`: Registra un avance con porcentaje, observaciones y archivo respaldo.
+
+> Todos los endpoints están protegidos con autenticación básica.
