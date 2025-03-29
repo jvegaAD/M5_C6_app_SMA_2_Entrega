@@ -1,3 +1,14 @@
+## 📑 Índice
+
+1. [Descripción del Proyecto](#🛠️-proyecto-sma---registro-y-reporte-ppda-cqp)
+2. [Estructura de Archivos del Proyecto](#🗂️-estructura-de-archivos-del-proyecto)
+3. [Estructura de Base de Datos](#🗄️-estructura-de-base-de-datos-postgresql---supabase)
+4. [Modelos Django](#🧩-estructura-de-modelos-django)
+5. [Endpoints REST Disponibles](#🌐-endpoints-rest-disponibles)
+6. [Funcionalidad de los Endpoints](#🔍-funcionalidad-de-los-endpoints)
+7. [Documentación de la API](#📄-documentación-de-la-api)
+8. [Relaciones de Tablas y Utilidad](#📊-estructura-relacional-de-la-base-de-datos)
+
 # 🛠️ Proyecto SMA - Registro y Reporte PPDA CQP
 
 Este proyecto permite a organismos responsables registrar y reportar el estado de avance de las medidas del Plan de Prevención y Descontaminación Atmosférica (PPDA) para las comunas de Concón, Quintero y Puchuncaví, según lo instruido por la SMA en la Resolución Exenta N°1379.
@@ -153,3 +164,22 @@ A continuación se detalla la estructura de la base de datos según el diagrama 
 - Permiten aplicar autenticación básica en los endpoints.
 
 > Estas relaciones permiten seguir el modelo lógico del PPDA definido en la Instrucción General de la SMA, permitiendo trazabilidad completa desde el organismo responsable hasta el avance reportado con evidencia.
+
+---
+
+## 📊 Estructura relacional de la base de datos
+
+La base de datos está compuesta por tres tablas principales, reflejando los lineamientos de la Instrucción General de la SMA:
+
+- **`reporte_ppda_organismo`**  
+  Almacena la información de los organismos responsables de ejecutar medidas del PPDA. Contiene nombre, comuna y correo de contacto.
+
+- **`reporte_ppda_medidappda`**  
+  Registra cada medida definida en el PPDA. Incluye tipo, indicador, medio de verificación y una relación directa al organismo responsable.
+
+- **`reporte_ppda_avancemedida`**  
+  Permite registrar reportes de avance en fechas determinadas, asociados a una medida. Guarda fecha, porcentaje de avance, observaciones y respaldo.
+
+Además, las tablas de Django como `auth_user`, `auth_group` y `django_session` gestionan la autenticación básica y sesiones activas en el sistema.
+
+Esta estructura permite mantener trazabilidad completa entre organismos, medidas y avances, cumpliendo con los requisitos de reporte establecidos por la SMA.
