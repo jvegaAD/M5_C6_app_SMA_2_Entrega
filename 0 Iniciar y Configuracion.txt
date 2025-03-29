@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----0o0----------
+SUBIR EL PROYECTO A GITHUB
+
+git init
+git add .
+git commit -m "Versión inicial del proyecto Proyecto_SMA"
+git branch -M main
+git remote add origin https://github.com/jvegaAD/M5_C6_app_SMA_2_Entrega.git
+git push -u origin main
+
+
+-----0o0----------
+
+GRABAR NUEVOS CAMBIOS  para subir a GITHUB.
+
+git add .
+git commit -m "mensaje claro"
+git push
+
+
+
+-----0o0----------
+
+CONECCION A BASE DE DATOS  https://supabase.com/
+
+M5_C6_app_SMA_2_Entrega
+m5c6appsma2entrega
+
+
+
+

@@ -36,76 +36,42 @@ M5 - 3 - APP SMA/                # Carpeta raíz del proyecto
 
 ---
 
-## ✅ Configuración inicial del proyecto
+## 🗄️ Estructura de Base de Datos (PostgreSQL - Supabase)
 
-### 1. Crear entorno virtual
+### 📌 Tabla: `reporte_ppda_organismo`
 
-```bash
-python -m venv env
-```
-
-### 2. Activar entorno virtual
-
-```bash
-.\env\Scripts\Activate.ps1
-```
+- **Propósito**: Almacena las entidades públicas responsables de medidas PPDA.
+- **Campos**:
+  - `nombre`: Nombre del organismo (Ej: Seremi Salud, CONAF).
+  - `comuna`: Comuna responsable.
+  - `correo_contacto`: Email oficial de contacto.
 
 ---
 
-### 3. Instalar dependencias
+### 📌 Tabla: `reporte_ppda_medidappda`
 
-```bash
-pip install django djangorestframework psycopg2-binary drf-yasg python-decouple
-```
-
----
-
-### 4. Crear proyecto Django
-
-```bash
-django-admin startproject Proyecto_SMA .
-```
-
-> ⚠️ El punto `.` al final evita duplicar el nombre de carpeta del proyecto.
+- **Propósito**: Representa cada medida del PPDA que debe ser implementada.
+- **Campos**:
+  - `nombre`: Descripción de la medida.
+  - `tipo`: Regulatoria o No Regulatoria.
+  - `indicador`: Cómo se mide el avance.
+  - `medio_verificacion`: Documentos o acciones que respaldan el cumplimiento.
+  - `organismo_responsable`: Relación con la tabla `organismo`.
 
 ---
 
-### 5. Crear la aplicación principal
+### 📌 Tabla: `reporte_ppda_avancemedida`
 
-```bash
-python manage.py startapp reporte_ppda
-```
-
----
-
-### 6. Registrar apps en `Proyecto_SMA/settings.py`
-
-```python
-INSTALLED_APPS = [
-    'rest_framework',
-    'drf_yasg',
-    'reporte_ppda',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-```
+- **Propósito**: Permite registrar los reportes de avance por cada medida en fechas determinadas.
+- **Campos**:
+  - `medida`: Relación con la medida del PPDA.
+  - `fecha_reporte`: Fecha del avance informado.
+  - `porcentaje_avance`: Avance numérico (%) acumulado.
+  - `observaciones`: Detalles u observaciones del organismo.
+  - `archivo_respaldo`: Documento adjunto como evidencia (opcional).
 
 ---
 
-### 7. Crear archivo `.env` en la raíz
+✅ Estas tablas ya se encuentran creadas y visibles en Supabase tras ejecutar las migraciones.
 
-```env
-DB_NAME=nombre_basedatos
-DB_USER=usuario
-DB_PASSWORD=clave
-DB_HOST=localhost
-DB_PORT=5432
-```
-
----
-
-_Próximamente: configuración de base de datos PostgreSQL y creación de modelos._
+_Próximamente: endpoints REST, autenticación y documentación Swagger._
