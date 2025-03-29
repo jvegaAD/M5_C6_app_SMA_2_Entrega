@@ -16,8 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+# Configuración de Swagger
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API PPDA SMA",
+        default_version='v1',
+        description="Documentación del sistema de avance del PPDA (Concón, Quintero y Puchuncaví)",
+        contact=openapi.Contact(email="contacto@sma.cl"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('reporte_ppda.urls')),  # ⬅️ Aquí se incluyen los endpoints REST
+    path('api/', include('reporte_ppda.urls')),  # Endpoints API
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),  # Swagger UI
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),  # Redoc UI
 ]

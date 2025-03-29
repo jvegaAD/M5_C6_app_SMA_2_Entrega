@@ -93,3 +93,23 @@ _Próximamente: implementación de endpoints, autenticación y Swagger._
 | POST   | `/api/avances/`          | Registrar avance             |
 
 > Estos endpoints están protegidos con autenticación básica (pendiente de configuración) y permiten realizar operaciones CRUD sobre los modelos del sistema.
+---
+
+## 📄 Documentación de la API
+
+La API cuenta con documentación interactiva generada automáticamente con Swagger y ReDoc:
+
+- Swagger UI: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
+- ReDoc UI: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
+
+Para verla, asegúrate de ejecutar primero:
+
+```bash
+python manage.py runserver
+```
+
+Y de tener las siguientes librerías instaladas:
+
+```bash
+pip install drf-yasg
+```
