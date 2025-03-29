@@ -7,27 +7,31 @@ Este proyecto permite a organismos responsables registrar y reportar el estado d
 ## 🗂️ Estructura de archivos del proyecto
 
 ```
-M5 - 3 - APP SMA/
-├── env/                        # Entorno virtual
-├── Proyecto_SMA/              # Configuración principal de Django
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── reporte_ppda/              # Aplicación del proyecto
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── serializers.py
-│   ├── views.py
-│   ├── urls.py
-│   ├── permissions.py
-│   └── tests.py
-├── manage.py
-├── requirements.txt
-├── .env
-└── README.md
+M5 - 3 - APP SMA/                # Carpeta raíz del proyecto
+
+├── env/                        # Entorno virtual Python (contiene dependencias instaladas)
+
+├── Proyecto_SMA/              # Configuración principal del proyecto Django
+│   ├── __init__.py            # Marca esta carpeta como un paquete Python
+│   ├── settings.py            # Configuración general del proyecto (DB, apps, seguridad, etc.)
+│   ├── urls.py                # Rutas base del proyecto, incluye rutas de apps o Swagger
+│   └── wsgi.py                # Punto de entrada WSGI para servidores de producción
+
+├── reporte_ppda/              # App principal del sistema, gestiona medidas y avances PPDA
+│   ├── __init__.py            # Marca esta carpeta como un paquete Python
+│   ├── admin.py               # Configura cómo se muestran los modelos en el admin de Django
+│   ├── apps.py                # Configuración de la app para Django
+│   ├── models.py              # Modelos de base de datos: MedidaPPDA, AvanceMedida, Organismo
+│   ├── serializers.py         # Serializadores DRF para convertir modelos a JSON
+│   ├── views.py               # Lógica de la API (ViewSets para cada modelo)
+│   ├── urls.py                # Endpoints API REST específicos de esta app
+│   ├── permissions.py         # Reglas de acceso personalizadas (si aplica)
+│   └── tests.py               # Pruebas automáticas del sistema
+
+├── manage.py                  # Script principal para ejecutar comandos Django
+├── requirements.txt           # Lista de paquetes necesarios para reproducir el entorno
+├── .env                       # Variables secretas: usuario y clave de la base de datos, etc.
+└── README.md                  # Documentación del proyecto y guía de instalación
 ```
 
 ---
