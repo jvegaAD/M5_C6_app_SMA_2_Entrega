@@ -79,3 +79,17 @@ class AvanceMedida(models.Model):
 ---
 
 _Próximamente: implementación de endpoints, autenticación y Swagger._
+---
+
+## 🌐 Endpoints REST disponibles
+
+| Método | URL                     | Descripción                  |
+|--------|--------------------------|------------------------------|
+| GET    | `/api/organismos/`       | Listar organismos            |
+| POST   | `/api/organismos/`       | Crear un organismo           |
+| GET    | `/api/medidas/`          | Listar medidas               |
+| POST   | `/api/medidas/`          | Crear medida PPDA            |
+| GET    | `/api/avances/`          | Listar avances               |
+| POST   | `/api/avances/`          | Registrar avance             |
+
+> Estos endpoints están protegidos con autenticación básica (pendiente de configuración) y permiten realizar operaciones CRUD sobre los modelos del sistema.
