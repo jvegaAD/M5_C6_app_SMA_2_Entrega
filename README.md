@@ -89,7 +89,6 @@ class AvanceMedida(models.Model):
 
 ---
 
-_Próximamente: implementación de endpoints, autenticación y Swagger._
 ---
 
 ## 🌐 Endpoints REST disponibles
