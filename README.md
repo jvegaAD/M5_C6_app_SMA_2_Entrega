@@ -89,12 +89,12 @@ class AvanceMedida(models.Model):
 
 | Método | URL                     | Descripción                  |
 |--------|--------------------------|------------------------------|
-| GET    | `/api/organismos/`       | Listar organismos            |
-| POST   | `/api/organismos/`       | Crear un organismo           |
-| GET    | `/api/medidas/`          | Listar medidas               |
-| POST   | `/api/medidas/`          | Crear medida PPDA            |
-| GET    | `/api/avances/`          | Listar avances               |
-| POST   | `/api/avances/`          | Registrar avance             |
+| GET    | ``       | Listar organismos            |
+| POST   | ``       | Crear un organismo           |
+| GET    | ``          | Listar medidas               |
+| POST   | ``          | Crear medida PPDA            |
+| GET    | ``          | Listar avances               |
+| POST   | ``          | Registrar avance             |
 
 > Estos endpoints están protegidos con autenticación básica (pendiente de configuración) y permiten realizar operaciones CRUD sobre los modelos del sistema.
 ---
@@ -121,21 +121,21 @@ pip install drf-yasg
 
 ## 🔍 Funcionalidad de los endpoints
 
-### `/api/organismos/`
+### ``
 - `GET`: Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
 - `POST`: Crea un nuevo organismo con nombre, comuna y correo de contacto.
 - `PUT`: Reemplaza completamente un organismo existente.
 - `PATCH`: Modifica parcialmente un organismo.
 - `DELETE`: Elimina un organismo existente.
 
-### `/api/medidas/`
+### ``
 - `GET`: Lista todas las medidas del PPDA, mostrando tipo, indicador y organismo responsable.
 - `POST`: Crea una nueva medida PPDA asignada a un organismo.
 - `PUT`: Reemplaza una medida existente.
 - `PATCH`: Modifica parcialmente una medida.
 - `DELETE`: Elimina una medida registrada.
 
-### `/api/avances/`
+### ``
 - `GET`: Muestra los reportes de avance ingresados por cada organismo.
 - `POST`: Registra un avance con porcentaje, observaciones y archivo respaldo.
 - `PUT`: Reemplaza un avance completo.
@@ -144,15 +144,15 @@ pip install drf-yasg
 
 > Todos los endpoints permiten operaciones CRUD completas y están protegidos con autenticación básica.
 
-### `/api/organismos/`
+### ``
 - `GET`: Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
 - `POST`: Crea un nuevo organismo con nombre, comuna y correo de contacto.
 
-### `/api/medidas/`
+### ``
 - `GET`: Lista todas las medidas del PPDA, mostrando tipo, indicador y organismo responsable.
 - `POST`: Crea una nueva medida PPDA asignada a un organismo.
 
-### `/api/avances/`
+### ``
 - `GET`: Muestra los reportes de avance ingresados por cada organismo.
 - `POST`: Registra un avance con porcentaje, observaciones y archivo respaldo.
 
