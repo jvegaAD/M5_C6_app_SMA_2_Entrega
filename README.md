@@ -190,8 +190,10 @@ El sistema utiliza tres entidades clave conectadas entre sí:
    - Almacena su nombre, comuna y contacto.
 
 2. **Medida (`reporte_ppda_medidappda`)**  
-   - Cada organismo tiene asociadas una o más medidas.  
-   - Se registra su tipo, indicador y medio de verificación.
+   - Representa una acción concreta definida en el PPDA (ej: fiscalización, educación, inversión o mejora tecnológica).  
+   - Cada medida está asignada a un organismo responsable.  
+   - Incluye su tipo (regulatoria o no regulatoria), el indicador de seguimiento y el medio de verificación asociado.  
+   - Es la unidad principal que permite planificar, ejecutar y evaluar el avance del plan ambiental.
 
 3. **Avance (`reporte_ppda_avancemedida`)**  
    - Cada medida puede tener múltiples avances en el tiempo.  
