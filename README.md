@@ -85,30 +85,7 @@ class AvanceMedida(models.Model):
 
 ---
 
-## 🌐 Endpoints REST disponibles
 
-| Método | URL                     | Descripción                  |
-|--------|--------------------------|------------------------------|
-| GET    | ``       | Listar organismos            |
-| POST   | ``       | Crear un organismo           |
-| GET    | ``          | Listar medidas               |
-| POST   | ``          | Crear medida PPDA            |
-| GET    | ``          | Listar avances               |
-| POST   | ``          | Registrar avance             |
-
-> Estos endpoints están protegidos con autenticación básica (pendiente de configuración) y permiten realizar operaciones CRUD sobre los modelos del sistema.
----
-
-## 📄 Documentación de la API
-
-La API cuenta con documentación interactiva generada automáticamente con Swagger y ReDoc:
-
-- Swagger UI: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
-- ReDoc UI: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
-
-Para verla, asegúrate de ejecutar primero:
-
-```bash
 python manage.py runserver
 ```
 
