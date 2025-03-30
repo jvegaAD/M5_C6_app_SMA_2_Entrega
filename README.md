@@ -1,4 +1,4 @@
-## 📑 Índice
+## 📑 Índice - b
 
 - [🛠️ Proyecto SMA - Registro y Reporte PPDA CQP](#proyecto-sma---registro-y-reporte-ppda-cqp)
 - [🗂️ Estructura de Archivos del Proyecto](#estructura-de-archivos-del-proyecto)
