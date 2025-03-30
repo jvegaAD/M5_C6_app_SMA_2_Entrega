@@ -170,6 +170,57 @@ A continuación se detalla la estructura de la base de datos según el diagrama 
 
 ---
 
+
+---
+
+## 🧭 Cómo funciona el sistema y cómo responde al encargo
+
+Este sistema ha sido desarrollado para dar cumplimiento a la instrucción oficial publicada por la Superintendencia del Medio Ambiente (SMA), sobre el **reporte y seguimiento del avance de medidas del PPDA** para las comunas de Concón, Quintero y Puchuncaví.
+
+### 🎯 Objetivo del sistema
+
+Permitir que los organismos responsables (como SEREMI, CONAF u otros) registren y reporten el estado de avance de cada medida comprometida en el PPDA.
+
+### 🧩 Estructura lógica
+
+El sistema utiliza tres entidades clave conectadas entre sí:
+
+1. **Organismo (`reporte_ppda_organismo`)**  
+   - Representa a cada organismo responsable.  
+   - Almacena su nombre, comuna y contacto.
+
+2. **Medida (`reporte_ppda_medidappda`)**  
+   - Cada organismo tiene asociadas una o más medidas.  
+   - Se registra su tipo, indicador y medio de verificación.
+
+3. **Avance (`reporte_ppda_avancemedida`)**  
+   - Cada medida puede tener múltiples avances en el tiempo.  
+   - Se reportan con fecha, % de cumplimiento, observaciones y respaldo.
+
+### 🔄 Relaciones entre las tablas
+
+```
+Organismo (1) ───< MedidaPPDA (N)
+MedidaPPDA (1) ───< AvanceMedida (N)
+```
+
+Esto permite:
+- Registrar responsables
+- Asociar medidas específicas a cada organismo
+- Ingresar avances periódicos y evidencia de cumplimiento
+
+### 📈 Utilidad para el encargo
+
+Con esta estructura, la SMA o los organismos pueden:
+
+- Consultar medidas por responsable
+- Ver avances acumulados por fecha
+- Identificar retrasos o brechas de cumplimiento
+- Descargar evidencia o respaldos cargados por los ejecutores
+
+Este modelo sigue fielmente lo indicado en la instrucción del Diario Oficial y permite una trazabilidad completa y auditabilidad del cumplimiento del PPDA.
+
+
 ## 📊 Estructura relacional de la base de datos
 
 La base de datos está compuesta por tres tablas principales, reflejando los lineamientos de la Instrucción General de la SMA:
