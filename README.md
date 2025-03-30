@@ -124,6 +124,29 @@ pip install drf-yasg
 ### `/api/organismos/`
 - `GET`: Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
 - `POST`: Crea un nuevo organismo con nombre, comuna y correo de contacto.
+- `PUT`: Reemplaza completamente un organismo existente.
+- `PATCH`: Modifica parcialmente un organismo.
+- `DELETE`: Elimina un organismo existente.
+
+### `/api/medidas/`
+- `GET`: Lista todas las medidas del PPDA, mostrando tipo, indicador y organismo responsable.
+- `POST`: Crea una nueva medida PPDA asignada a un organismo.
+- `PUT`: Reemplaza una medida existente.
+- `PATCH`: Modifica parcialmente una medida.
+- `DELETE`: Elimina una medida registrada.
+
+### `/api/avances/`
+- `GET`: Muestra los reportes de avance ingresados por cada organismo.
+- `POST`: Registra un avance con porcentaje, observaciones y archivo respaldo.
+- `PUT`: Reemplaza un avance completo.
+- `PATCH`: Actualiza campos específicos de un avance.
+- `DELETE`: Borra un avance registrado.
+
+> Todos los endpoints permiten operaciones CRUD completas y están protegidos con autenticación básica.
+
+### `/api/organismos/`
+- `GET`: Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
+- `POST`: Crea un nuevo organismo con nombre, comuna y correo de contacto.
 
 ### `/api/medidas/`
 - `GET`: Lista todas las medidas del PPDA, mostrando tipo, indicador y organismo responsable.
