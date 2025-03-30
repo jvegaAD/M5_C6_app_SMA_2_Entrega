@@ -267,3 +267,25 @@ La base de datos está compuesta por tres tablas principales, reflejando los lin
 Además, las tablas de Django como `auth_user`, `auth_group` y `django_session` gestionan la autenticación básica y sesiones activas en el sistema.
 
 Esta estructura permite mantener trazabilidad completa entre organismos, medidas y avances, cumpliendo con los requisitos de reporte establecidos por la SMA.
+
+### 🔄 Nota sobre la estructura de las tablas
+
+Al observar el diagrama ER en Supabase, se distinguen dos grupos de tablas sin una relación directa entre ellos:
+
+#### 🔹 Grupo 1: Sistema de Usuarios y Permisos (`auth_*`)
+Estas tablas son gestionadas automáticamente por Django y controlan el sistema de autenticación y autorización:
+- `auth_user`, `auth_group`, `auth_permission`, etc.
+- Manejan los accesos y roles de los usuarios (como administrador, SEREMI, organismo informante).
+- Aunque no están conectadas directamente con las tablas de aplicación, **no generan conflicto**. Django utiliza esta separación para mantener modularidad y seguridad.
+
+#### 🔹 Grupo 2: Aplicación `reporte_ppda`
+Estas son las tablas creadas en la aplicación:
+- `reporte_ppda_organismo`
+- `reporte_ppda_medidappda`
+- `reporte_ppda_avancemedida`
+
+Estas tablas sí están correctamente relacionadas para reflejar el flujo lógico de datos:
+**Organismo → MedidaPPDA → AvanceMedida**
+
+#### ✅ Conclusión
+No es necesario que las tablas del sistema de autenticación (`auth_*`) estén conectadas directamente con los modelos de aplicación. Si en el futuro se desea vincular un `usuario` a un `organismo`, se puede hacer agregando una relación `OneToOneField` en el modelo correspondiente o gestionando la lógica en las vistas.
