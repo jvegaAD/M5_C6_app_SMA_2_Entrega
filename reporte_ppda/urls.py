@@ -1,14 +1,19 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import OrganismoViewSet, MedidaPPDAViewSet, AvanceMedidaViewSet
+from django.urls import path
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
-# Crear router para los endpoints REST
-router = DefaultRouter()
-router.register(r'organismos', OrganismoViewSet)
-router.register(r'medidas', MedidaPPDAViewSet)
-router.register(r'avances', AvanceMedidaViewSet)
+schema_view = get_schema_view(
+   openapi.Info(
+      title="API PPDA",
+      default_version='v1',
+      description="Documentación de la API del PPDA",
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
-# Incluir las rutas del router
 urlpatterns = [
-    path('', include(router.urls)),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
