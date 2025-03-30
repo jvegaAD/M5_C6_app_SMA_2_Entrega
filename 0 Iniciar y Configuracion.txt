@@ -44,4 +44,102 @@ m5c6appsma2entrega
 
 
 
+-----0o0----------
+
+Con esto, ahora tienes los siguientes endpoints disponibles:
+
+Método	URL	Descripción
+GET	/api/organismos/	Listar organismos
+POST	/api/organismos/	Crear un organismo
+GET	/api/medidas/	Listar medidas
+POST	/api/medidas/	Crear medida PPDA
+GET	/api/avances/	Listar avances
+POST	/api/avances/	Registrar avance
+
+
+-----0o0----------
+CREANDO USUARIOS:
+
+administrador
+administrador@gmail.com
+clave1234
+
+
+-----0o0----------
+
+urls.py (con Swagger)
+
+-----0o0----------
+LEVANTAR  el servidor, ejecutando  python manage.py runserver
+
+
+
+✅ ¿Qué hacer ahora?
+Accede directamente a:
+
+🔵 Swagger UI:
+👉 http://127.0.0.1:8000/swagger/
+
+🔴 ReDoc:
+👉 http://127.0.0.1:8000/redoc/
+
+También puedes entrar a los endpoints directamente:
+
+http://127.0.0.1:8000/api/organismos/
+
+http://127.0.0.1:8000/api/medidas/
+
+http://127.0.0.1:8000/api/avances/
+
+
+🌐 Endpoints disponibles y su funcionalidad
+✅ GET /api/organismos/
+📋 Lista todos los organismos responsables registrados (ej: Seremi, CONAF).
+
+🔎 Útil para consultar quién es responsable de cada medida.
+
+✅ POST /api/organismos/
+📝 Permite crear un nuevo organismo indicando su nombre, comuna y correo.
+
+✅ GET /api/medidas/
+📋 Lista todas las medidas del PPDA ingresadas al sistema.
+
+📌 Muestra: tipo, indicador, medio de verificación y organismo responsable.
+
+✅ POST /api/medidas/
+📝 Permite registrar una nueva medida PPDA, asignando el organismo responsable.
+
+✅ GET /api/avances/
+📋 Muestra los reportes de avance enviados por cada organismo.
+
+🕓 Puedes ver el avance histórico por medida y fecha.
+
+✅ POST /api/avances/
+📝 Permite que un organismo informe su avance (porcentaje, observaciones, y archivo respaldo).
+
+
+
+
+
+-o0o----------
+
+Subir datos ficticios  a la base de datos desde VSC 
+
+
+
+Activar el Power shell:    python manage.py Shell
+
+ingresar el código:        exec(open("carga_datos_ficticios.py").read())
+
+
+Cerrar:                    exit()
+
+
+-o0o----------
+
+
+
+
+
+
 

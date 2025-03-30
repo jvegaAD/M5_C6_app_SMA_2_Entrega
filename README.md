@@ -223,6 +223,34 @@ Con esta estructura, la SMA o los organismos pueden:
 Este modelo sigue fielmente lo indicado en la instrucción del Diario Oficial y permite una trazabilidad completa y auditabilidad del cumplimiento del PPDA.
 
 
+
+---
+
+## 👥 Tipos de Usuarios y Autorizaciones en el Sistema
+
+Para cumplir con el encargo de la SMA y representar correctamente a los actores que participan en el seguimiento del PPDA, se han definido los siguientes tipos de usuarios:
+
+### 🔐 Tipos de usuario
+
+| Rol              | Descripción                                                    | Acceso al panel `/admin` | Permisos técnicos (Django)         |
+|------------------|----------------------------------------------------------------|---------------------------|-------------------------------------|
+| **Administrador** | Control total del sistema, creación de usuarios y gestión total | ✅                         | `is_staff=True`, `is_superuser=True` |
+| **Responsable**   | Usuario que representa a un organismo ejecutor (CONAF, etc.)   | ❌ (solo API)              | `is_staff=False`, `is_superuser=False` |
+| **SEREMI**        | Usuario que revisa avances y medidas sin editar datos          | ✅                         | `is_staff=True`, `is_superuser=False` |
+
+### ⚙️ Significado de flags en Django
+
+- `is_staff=True` → Puede acceder al panel de administración (`/admin`), pero no tiene control total a menos que tenga permisos asignados.
+- `is_superuser=True` → Tiene todos los permisos sobre el sistema, sin restricciones.
+
+### 🔐 Usuarios ficticios creados
+
+Se han creado 10 usuarios con nombres como `organismo1_user`, `organismo2_user`, etc., representando a cada organismo responsable.  
+Además, se creó un usuario especial `seremi_usuario` con permisos de lectura y acceso administrativo parcial.
+
+Estos usuarios permiten autenticar acciones en la API y limitar el acceso según el rol institucional que cumplen dentro del sistema de reporte del PPDA.
+
+
 ## 📊 Estructura relacional de la base de datos
 
 La base de datos está compuesta por tres tablas principales, reflejando los lineamientos de la Instrucción General de la SMA:
