@@ -1,5 +1,8 @@
 
+-----0o0----------
+ACTIVAR ENTORNO VIRTUAL
 
+.\env\Scripts\Activate.ps1
 
 
 
